@@ -17,7 +17,7 @@
 
 	<link rel="shortcut icon" href="img/mu-toutiao.ico" />
 
-	<title>媒体号作家中心 | 内容管理</title>
+	<title>Writor Center | Content Management</title>
 </head>
 
 <body>
@@ -42,27 +42,27 @@
 					<li class="">
 						<div class="menu-title-wrapper">
 							<img src="img/media-ico.png" class="word-ico" />
-							<div class="menu-title">媒体中心</div>
+							<div class="menu-title">Account Center</div>
 						</div>
 						<ul>
 							<li class="menu-item">
 								<a href="contentMng.html" class="menu-item-select"
-									v-if="userInfo.activeStatus == 1">内容管理</a>
+									v-if="userInfo.activeStatus == 1">Content Management</a>
 								<a href="javascript:void(0);" class="menu-item-select"
-									v-if="userInfo.activeStatus == 0">内容管理</a>
+									v-if="userInfo.activeStatus == 0">Content Management</a>
 							</li>
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-select">主页</a></li> -->
 							<li class="menu-item">
 								<a href="createArticle.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">发头条</a>
+									v-if="userInfo.activeStatus == 1">Headline</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">发头条</a>
+									v-if="userInfo.activeStatus == 0">Headline</a>
 							</li>
 							<li class="menu-item">
 								<a href="commentMng.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">评论管理</a>
+									v-if="userInfo.activeStatus == 1">Comment Management</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">评论管理</a>
+									v-if="userInfo.activeStatus == 0">Comment Management</a>
 							</li>
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-default">打赏记录</a></li> -->
 						</ul>
@@ -73,26 +73,26 @@
 					<li class="">
 						<div class="menu-title-wrapper">
 							<img src="img/user-ico.png" class="word-ico" />
-							<div class="menu-title">个人账号</div>
+							<div class="menu-title">Personal Account</div>
 						</div>
 						<ul>
 							<li class="menu-item">
 								<a href="accountInfo.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">账号设置</a>
+									v-if="userInfo.activeStatus == 1">Account Setting</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">账号设置</a>
+									v-if="userInfo.activeStatus == 0">Account Setting</a>
 							</li>
 							<li class="menu-item">
 								<a href="myFans.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">我的粉丝</a>
+									v-if="userInfo.activeStatus == 1">My Fans</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">我的粉丝</a>
+									v-if="userInfo.activeStatus == 0">My Fans</a>
 							</li>
 							<li class="menu-item">
 								<a href="myFansCharts.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">粉丝画像</a>
+									v-if="userInfo.activeStatus == 1">Fans Portrait</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">粉丝画像</a>
+									v-if="userInfo.activeStatus == 0">Fans Portrait</a>
 							</li>
 
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-default">收益提现</a></li> -->
@@ -105,27 +105,27 @@
 				<div class="search-box">
 					<div class="status-wrapper">
 						<div class="all-status">
-							<span class="words-label">文章状态</span>
+							<span class="words-label">Article Status</span>
 							<span
 								:class="['words-status', articleStatusType == 0 ? 'status-selected' : 'status-default']"
-								@click="queryByType(0)">全部</span>
+								@click="queryByType(0)">All</span>
 							<span
 								:class="['words-status', articleStatusType == 3 ? 'status-selected' : 'status-default']"
-								@click="queryByType(3)">已发布</span>
+								@click="queryByType(3)">Published</span>
 							<span
 								:class="['words-status', articleStatusType == 12 ? 'status-selected' : 'status-default']"
-								@click="queryByType(12)">审核中</span>
+								@click="queryByType(12)">Pending</span>
 							<span
 								:class="['words-status', articleStatusType == 4 ? 'status-selected' : 'status-default']"
-								@click="queryByType(4)">未通过</span>
+								@click="queryByType(4)">Not passed</span>
 							<span
 								:class="['words-status', articleStatusType == 5 ? 'status-selected' : 'status-default']"
-								@click="queryByType(5)">已撤回</span>
+								@click="queryByType(5)">Withdrawed</span>
 
 						</div>
 						<div class="search-me">
 							<div class="search-wrapper">
-								<input type="test" v-model="searchContent" placeholder="请输入搜索关键字" class="search-input"
+								<input type="test" v-model="searchContent" placeholder="Please enter keywords" class="search-input"
 									@keyup.enter="submitSearch" />
 								<!-- <span class="search-btn">搜索</span> -->
 								<span class="search-ico-wrapper">
@@ -135,9 +135,9 @@
 						</div>
 					</div>
 					<div class="time-choose">
-						<div class="words-label">时间选择</div>
+						<div class="words-label">Time Select</div>
 						<div>
-							<input type="text" class="input-date-picker" placeholder="开始日期 ~ 结束日期" id="choose-date">
+							<input type="text" class="input-date-picker" placeholder="Start ~ End" id="choose-date">
 						</div>
 					</div>
 				</div>
@@ -155,19 +155,19 @@
 											class="article-link">{{article.title}}</a></span>
 									<span class="counts-wrapper">
 										<!-- TODO: 数字待定，后续做 -->
-										<span>阅读 0 ⋅</span>
-										<span>评论 0</span>
+										<span>view 0 ⋅</span>
+										<span>comment 0</span>
 									</span>
 									<span class="status-reviewing article-status"
-										v-show="article.articleStatus==1 || article.articleStatus==2">审核中</span>
+										v-show="article.articleStatus==1 || article.articleStatus==2">Pending</span>
 									<span class="status-published article-status"
-										v-show="article.articleStatus==3">已发布</span>
+										v-show="article.articleStatus==3">Published</span>
 									<span class="status-fail article-status"
-										v-show="article.articleStatus==4">审核未通过</span>
+										v-show="article.articleStatus==4">Not Passed</span>
 									<span class="status-back article-status"
-										v-show="article.articleStatus==5">已撤回</span>
+										v-show="article.articleStatus==5">Withdrawed</span>
 									<span class="publish-time">
-										<span v-show="article.isAppoint==1">预计发布时间：</span>
+										<span v-show="article.isAppoint==1">Anticipated Publish Time：</span>
 										{{formatData(article.publishTime)}}
 									</span>
 								</div>
@@ -179,13 +179,13 @@
 									<a href="javascript:void(0);" style="margin-top: 8px;" @click="withdraw(article.id)"
 										v-show="article.articleStatus==3">
 										<img src="./img/icon-back.png" class="oper-icon" />
-										<span class="oper-words">撤回</span>
+										<span class="oper-words">Withdraw</span>
 									</a>
 									<a href="javascript:void(0);" style="margin-top: 8px;"
 										@click="deleteArticle(article.id)"
 										v-show="article.articleStatus==3 || article.articleStatus==4">
 										<img src="./img/icon-delete.png" class="oper-icon" />
-										<span class="oper-words">删除</span>
+										<span class="oper-words">Delete</span>
 									</a>
 								</div>
 							</div>
@@ -276,7 +276,7 @@
 		methods: {
 			// 删除文章
 			withdraw(articleId) {
-				var confirm = window.confirm("确认撤回？");
+				var confirm = window.confirm("Confirm Withdraw？");
 				if (!confirm) {
 					return;
 				}
@@ -300,7 +300,7 @@
 						console.log(JSON.stringify(res.data));
 
 						if (res.data.status == 200) {
-							alert("撤回成功!");
+							alert("Success!");
 							this.queryMyArticleList(1, 10, "", "", "", "");
 						} else {
 							alert(res.data.msg);
@@ -310,7 +310,7 @@
 			// 撤回文章
 			deleteArticle(articleId) {
 				console.log(articleId);
-				var confirm = window.confirm("确认删除？");
+				var confirm = window.confirm("Confirm Delete？");
 				if (!confirm) {
 					return;
 				}
@@ -334,7 +334,7 @@
 						console.log(JSON.stringify(res.data));
 
 						if (res.data.status == 200) {
-							alert("删除成功!");
+							alert("Success!");
 							this.queryMyArticleList(1, 10, "", "", "", "");
 						} else {
 							alert(res.data.msg);
