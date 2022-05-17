@@ -17,7 +17,7 @@
 
 	<link rel="shortcut icon" href="img/mu-toutiao.ico" />
 
-	<title>设置管理员 | 运营管理平台</title>
+	<title>SET ADMINISTRATOR | MANAGING PLATFORM</title>
 </head>
 
 <body>
@@ -31,7 +31,7 @@
 					<!-- <img src="./img/face1.png" class="me-face"/> -->
 					<span class="me-nickname">{{adminUserLogin.adminName}}</span>
 					<span class="sep-line">|</span>
-					<span class="logout" @click="doLogout">注销</span>
+					<span class="logout" @click="doLogout">Logout</span>
 				</div>
 			</div>
 		</div>
@@ -44,16 +44,16 @@
 					<li class="">
 						<div class="menu-title-wrapper">
 							<img src="img/admin-ico.png" class="word-ico" />
-							<div class="menu-title">管理中心</div>
+							<div class="menu-title">Managing Center</div>
 						</div>
 						<ul style="margin-top: 5px;">
-							<li class="menu-item"><a href="contentReview.html" class="menu-item-default">内容审核</a></li>
-							<li class="menu-item"><a href="userList.html" class="menu-item-default">用户管理</a></li>
-							<li class="menu-item"><a href="categoryMng.html" class="menu-item-default">文章分类</a></li>
+							<li class="menu-item"><a href="contentReview.html" class="menu-item-default">Content Audit</a></li>
+							<li class="menu-item"><a href="userList.html" class="menu-item-default">User Management</a></li>
+							<li class="menu-item"><a href="categoryMng.html" class="menu-item-default">Article Classigication</a></li>
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-default">提现管理</a></li> -->
-							<li class="menu-item"><a href="friendLinks.html" class="menu-item-default">友情链接</a></li>
-							<li class="menu-item"><a href="blackList.html" class="menu-item-default">IP黑名单</a></li>
-							<li class="menu-item"><a href="adminMng.html" class="menu-item-select">设置管理员</a></li>
+							<li class="menu-item"><a href="friendLinks.html" class="menu-item-default">FriendLinks</a></li>
+							<li class="menu-item"><a href="blackList.html" class="menu-item-default">IP Blacklist</a></li>
+							<li class="menu-item"><a href="adminMng.html" class="menu-item-select">Setting Administrator</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -63,38 +63,38 @@
 				<div class="edit-box">
 					<div class="mng-box">
 						<div class="single-line-enter">
-							<div class="words-label">登录名</div>
+							<div class="words-label">Username</div>
 							<input type="text" v-model="adminUser.username" @keyup="adminIsExist" class="field-input"
 								maxlength="12" />
 						</div>
 						<div class="single-line-enter">
-							<div class="words-label">负责人</div>
+							<div class="words-label">AdminUser</div>
 							<input type="text" v-model="adminUser.adminName" class="field-input" maxlength="12" />
 						</div>
 						<div class="single-line-enter">
-							<div class="words-label" style="align-self: center;">密码</div>
+							<div class="words-label" style="align-self: center;">Password</div>
 							<input type="text" v-model="adminUser.password" class="field-input" maxlength="20" />
 						</div>
 						<div class="single-line-enter">
-							<div class="words-label" style="align-self: center;">确认密码</div>
+							<div class="words-label" style="align-self: center;">Confirm Password</div>
 							<input type="text" v-model="adminUser.confirmPassword" class="field-input" maxlength="20" />
 						</div>
 						<div class="single-line-enter">
-							<div class="words-label" style="align-self: center;">人脸登录</div>
+							<div class="words-label" style="align-self: center;">Face Login</div>
 							<input type="checkbox" v-model="adminUser.isFaceLogin" class="field-input"
 								style="width: 102px; margin-top: 8px;" @change="doFace" />
 
 							<button class="face-btn" @click="takeFace"
-								v-show="adminUser.isFaceLogin && takeFaceStatus==1">获取人脸</button>
+								v-show="adminUser.isFaceLogin && takeFaceStatus==1">Collect Face</button>
 							<button class="face-btn" @click="refreshFace"
-								v-show="adminUser.isFaceLogin && takeFaceStatus==2">重新获取</button>
+								v-show="adminUser.isFaceLogin && takeFaceStatus==2">Recollect Face</button>
 						</div>
 						<div class="single-line-enter btn-submit-wrapper">
-							<button class="clear-btn" @click="clearData" style="margin-left: 10px;">清空数据</button>
-							<button class="submit-btn" @click="addAdmin">确认添加</button>
+							<button class="clear-btn" @click="clearData" style="margin-left: 10px;">Clear Data</button>
+							<button class="submit-btn" @click="addAdmin">Confirm Submit</button>
 						</div>
 						<div class="single-line-enter notice">
-							* 请确保你的电脑有摄像头~
+							* Please Make Sure Your Camera is on~
 						</div>
 					</div>
 					<div class="face-box">
@@ -114,10 +114,10 @@
 
 						<table class="table-user">
 							<tr class="head-th">
-								<th style="width: 20%; text-align: left; padding-left: 30px;color: #222;">登录名</th>
-								<th style="width: 20%; text-align: right; padding-right: 10px;color: #222;">负责人</th>
-								<th style="width: 20%; text-align: right; padding-right: 10px;color: #222;">创建时间</th>
-								<th style="width: 20%; text-align: right; padding-right: 30px;color: #222;">操作</th>
+								<th style="width: 20%; text-align: left; padding-left: 30px;color: #222;">Username</th>
+								<th style="width: 20%; text-align: right; padding-right: 10px;color: #222;">Admin</th>
+								<th style="width: 20%; text-align: right; padding-right: 10px;color: #222;">Create Time</th>
+								<th style="width: 20%; text-align: right; padding-right: 30px;color: #222;">Operation</th>
 							</tr>
 
 							<tr class="user-single-line" v-for="(admin, index) in adminList">
@@ -126,7 +126,7 @@
 								<td class="table-td-right" style="padding-right: 10px;">
 									{{formatData(admin.createdTime)}}</td>
 								<td class="table-td-right" style="padding-right: 30px;"><a href="javascript:void(0);"
-										@click="showFace(admin.faceId)" target="_blank">查看人脸</a></td>
+										@click="showFace(admin.faceId)" target="_blank">Face Check</a></td>
 							</tr>
 
 						</table>
@@ -290,16 +290,16 @@
 
 				// 基本验证
 				if (app.isEmpty(me.adminUser.username)) {
-					alert("登录名不能为空");
+					alert("Username Can't be Empty!");
 					return false;
 				}
 				if (me.adminUserIsExist) {
-					alert("登录名已经存在，请换一个吧~");
+					alert("Username already taken, try another one~");
 					return false;
 				}
 
 				if (app.isEmpty(me.adminUser.adminName)) {
-					alert("负责人姓名不能为空");
+					alert("Admin Name Can't be Empty!");
 					return false;
 				}
 
@@ -307,13 +307,13 @@
 				var faceData64 = me.faceData64;
 				if (me.adminUser.isFaceLogin) {
 					if (app.isEmpty(faceData64)) {
-						alert("请点击`获取人脸`按钮获得您的人脸信息");
+						alert("Please click 'Collect Face' to collect your face information");
 						return false;
 					}
 				} else {
 					// 不使用人脸进入的验证判断，密码必填
 					if (app.isEmpty(me.adminUser.password)) {
-						alert("密码不能为空");
+						alert("Password Can't be Empty!");
 						return false;
 					}
 				}
@@ -321,7 +321,7 @@
 				// 如果填了密码，但是密码与确认密码不一致，则报错
 				if (app.isNotEmpty(me.adminUser.password)) {
 					if (me.adminUser.password != me.adminUser.confirmPassword) {
-						alert("两次输入密码不一致");
+						alert("Confirm Password is not the same as Password!");
 						return false;
 					}
 				}
