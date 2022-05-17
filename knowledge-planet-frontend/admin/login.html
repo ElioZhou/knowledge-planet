@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>新闻 | 运营管理平台</title>
+	<title>News | Managing Platform</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -41,8 +41,8 @@
 					<div class="col-sm-5 form-box">
 						<div class="form-top">
 							<div class="form-top-left">
-								<h3>管理员登录</h3>
-								<p>请使用账号密码或者人脸登录:</p>
+								<h3>Administrator Login</h3>
+								<p>Please use username+password or FaceID to log in:</p>
 							</div>
 							<div class="form-top-right">
 								<!-- <i class="fa fa-pencil"></i> -->
@@ -66,10 +66,10 @@
 								<div class="form-group">
 									<input type="checkbox" name="form-face" id="form-face" style="zoom:130%;"
 										v-model="isFaceLogin" @change="useFaceLogin()">
-									<label for="form-face" style="color: white; font-weight: 100;">使用人脸识别登录</label>
-									<span style="color: beige; font-size: 12px; float: right;">建议在Chrome下使用本系统</span>
+									<label for="form-face" style="color: white; font-weight: 100;">Use FaceID Login</label>
+									<span style="color: beige; font-size: 12px; float: right;">Recommend using this system on Chrome</span>
 								</div>
-								<button type="button" class="btn" @click="login()">戳我登录!</button>
+								<button type="button" class="btn" @click="login()">Click here to login!</button>
 							</form>
 						</div>
 					</div>
@@ -114,7 +114,7 @@
 
 					var username = me.username;
 					if (username == null || username == undefined || username == "") {
-						alert("用户名不能为空！");
+						alert("Username Can't be Empty！");
 						return;
 					}
 
@@ -142,7 +142,7 @@
 								console.log(res.data);
 								if (res.data.status == 200) {
 									// 登录成功，跳转到admin首页
-									alert("人脸识别成功！点击确认进入系统");
+									alert("FaceID Recognized！Click to enter the system");
 									window.location = app.adminIndexUrl;
 								} else {
 									alert(res.data.msg);
@@ -152,7 +152,7 @@
 					} else {
 						var password = me.password;
 						if (password == null || password == undefined || password == "") {
-							alert("密码不能为空！");
+							alert("Password Can't be Empty！");
 							return;
 						}
 
