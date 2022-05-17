@@ -17,7 +17,7 @@
 
 	<link rel="shortcut icon" href="img/mu-toutiao.ico" />
 
-	<title>内容审核 | 运营管理平台</title>
+	<title>Content Audit | Managing Platform</title>
 </head>
 
 <body>
@@ -31,7 +31,7 @@
 					<!-- <img src="./img/face1.png" class="me-face"/> -->
 					<span class="me-nickname">{{adminUserLogin.adminName}}</span>
 					<span class="sep-line">|</span>
-					<span class="logout" @click="doLogout">注销</span>
+					<span class="logout" @click="doLogout">Logout</span>
 				</div>
 			</div>
 		</div>
@@ -45,16 +45,16 @@
 					<li class="">
 						<div class="menu-title-wrapper">
 							<img src="img/admin-ico.png" class="word-ico" />
-							<div class="menu-title">管理中心</div>
+							<div class="menu-title">Management Center</div>
 						</div>
 						<ul style="margin-top: 5px;">
-							<li class="menu-item"><a href="contentReview.html" class="menu-item-select">内容审核</a></li>
-							<li class="menu-item"><a href="userList.html" class="menu-item-default">用户管理</a></li>
-							<li class="menu-item"><a href="categoryMng.html" class="menu-item-default">文章分类</a></li>
+							<li class="menu-item"><a href="contentReview.html" class="menu-item-select">Content Audit</a></li>
+							<li class="menu-item"><a href="userList.html" class="menu-item-default">User Management</a></li>
+							<li class="menu-item"><a href="categoryMng.html" class="menu-item-default">Article Classification</a></li>
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-default">提现管理</a></li> -->
-							<li class="menu-item"><a href="friendLinks.html" class="menu-item-default">友情链接</a></li>
-							<li class="menu-item"><a href="blackList.html" class="menu-item-default">IP黑名单</a></li>
-							<li class="menu-item"><a href="adminMng.html" class="menu-item-default">设置管理员</a></li>
+							<li class="menu-item"><a href="friendLinks.html" class="menu-item-default">Friend List</a></li>
+							<li class="menu-item"><a href="blackList.html" class="menu-item-default">IP Blacklist</a></li>
+							<li class="menu-item"><a href="adminMng.html" class="menu-item-default">Setting Administrator</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -64,22 +64,22 @@
 				<div class="search-box">
 					<div class="status-wrapper">
 						<div class="all-status">
-							<span class="words-label">文章状态</span>
+							<span class="words-label">Article Status</span>
 							<span
 								:class="['words-status', articleStatusType == 0 ? 'status-selected' : 'status-default']"
-								@click="queryByType(0)">全部</span>
+								@click="queryByType(0)">All</span>
 							<span
 								:class="['words-status', articleStatusType == 3 ? 'status-selected' : 'status-default']"
-								@click="queryByType(3)">已发布</span>
+								@click="queryByType(3)">Published</span>
 							<span
 								:class="['words-status', articleStatusType == 12 ? 'status-selected' : 'status-default']"
-								@click="queryByType(12)">待审核</span>
+								@click="queryByType(12)">Pending</span>
 							<span
 								:class="['words-status', articleStatusType == 4 ? 'status-selected' : 'status-default']"
-								@click="queryByType(4)">未通过</span>
+								@click="queryByType(4)">Not Passed</span>
 							<span
 								:class="['words-status', articleStatusType == 5 ? 'status-selected' : 'status-default']"
-								@click="queryByType(5)">已撤回</span>
+								@click="queryByType(5)">Withdrawed</span>
 						</div>
 					</div>
 				</div>
@@ -99,20 +99,20 @@
 										</a></span>
 									<span class="counts-wrapper">
 										<!-- TODO: 数字待定，后续做 -->
-										<span>阅读 0 ⋅</span>
-										<span>评论 0 ⋅</span>
-										<span>收藏 0</span>
+										<span>view 0 ⋅</span>
+										<span>comment 0 ⋅</span>
+										<span>collect 0</span>
 									</span>
 									<span class="status-reviewing article-status"
-										v-show="article.articleStatus==1 || article.articleStatus==2">待审核</span>
+										v-show="article.articleStatus==1 || article.articleStatus==2">Pending</span>
 									<span class="status-published article-status"
-										v-show="article.articleStatus==3">已发布</span>
+										v-show="article.articleStatus==3">Published</span>
 									<span class="status-fail article-status"
-										v-show="article.articleStatus==4">审核未通过</span>
+										v-show="article.articleStatus==4">Not Passed</span>
 									<span class="status-back article-status"
-										v-show="article.articleStatus==5">已撤回</span>
+										v-show="article.articleStatus==5">Withdrawed</span>
 									<span class="publish-time">
-										<span v-show="article.isAppoint==1">预计发布时间：</span>
+										<span v-show="article.isAppoint==1">Anticipated Publish Time：</span>
 										{{formatData(article.publishTime)}}
 									</span>
 								</div>
@@ -120,12 +120,12 @@
 									<a href="javascript:void(0);" style="margin-top: 15px;" class="link-opers">
 										<img src="./img/icon-pass.png" class="oper-icon" style="margin-right: 5px;" />
 										<span class="oper-words do-success"
-											@click="reviewStatus(article.id, 1)">审核通过</span>
+											@click="reviewStatus(article.id, 1)">Passed</span>
 									</a>
 									<a href="javascript:void(0);" style="margin-top: 8px;" class="link-opers">
 										<img src="./img/icon-unpass.png" class="oper-icon" style="margin-right: 5px;" />
 										<span class="oper-words do-fail"
-											@click="reviewStatus(article.id, 0)">审核失败</span>
+											@click="reviewStatus(article.id, 0)">Not Passed</span>
 									</a>
 								</div>
 							</div>
