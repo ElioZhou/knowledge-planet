@@ -17,7 +17,7 @@
 
 	<link rel="shortcut icon" href="img/mu-toutiao.ico" />
 
-	<title>用户管理 | 运营管理平台</title>
+	<title>User Management | Managing Platform</title>
 </head>
 
 <body>
@@ -31,7 +31,7 @@
 					<!-- <img src="./img/face1.png" class="me-face"/> -->
 					<span class="me-nickname">{{adminUserLogin.adminName}}</span>
 					<span class="sep-line">|</span>
-					<span class="logout" @click="doLogout">注销</span>
+					<span class="logout" @click="doLogout">Logout</span>
 				</div>
 			</div>
 		</div>
@@ -45,16 +45,16 @@
 					<li class="">
 						<div class="menu-title-wrapper">
 							<img src="img/admin-ico.png" class="word-ico" />
-							<div class="menu-title">管理中心</div>
+							<div class="menu-title">Management Center</div>
 						</div>
 						<ul style="margin-top: 5px;">
-							<li class="menu-item"><a href="contentReview.html" class="menu-item-default">内容审核</a></li>
-							<li class="menu-item"><a href="userList.html" class="menu-item-select">用户管理</a></li>
-							<li class="menu-item"><a href="categoryMng.html" class="menu-item-default">文章分类</a></li>
+							<li class="menu-item"><a href="contentReview.html" class="menu-item-default">Content Audit</a></li>
+							<li class="menu-item"><a href="userList.html" class="menu-item-select">User Management</a></li>
+							<li class="menu-item"><a href="categoryMng.html" class="menu-item-default">Article Classification</a></li>
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-default">提现管理</a></li> -->
-							<li class="menu-item"><a href="friendLinks.html" class="menu-item-default">友情链接</a></li>
-							<li class="menu-item"><a href="blackList.html" class="menu-item-default">IP黑名单</a></li>
-							<li class="menu-item"><a href="adminMng.html" class="menu-item-default">设置管理员</a></li>
+							<li class="menu-item"><a href="friendLinks.html" class="menu-item-default">Friend Link</a></li>
+							<li class="menu-item"><a href="blackList.html" class="menu-item-default">IP Blacklist</a></li>
+							<li class="menu-item"><a href="adminMng.html" class="menu-item-default">Setting Administrator</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -64,23 +64,23 @@
 				<div class="search-box">
 					<div class="status-wrapper">
 						<div class="all-status">
-							<span class="words-label">用户状态</span>
+							<span class="words-label">User Status</span>
 							<span
 								:class="['words-status', articleStatusType == 9 ? 'status-selected' : 'status-default']"
-								@click="queryByType(9)">全部</span>
+								@click="queryByType(9)">All</span>
 							<span
 								:class="['words-status', articleStatusType == 1 ? 'status-selected' : 'status-default']"
-								@click="queryByType(1)">已激活</span>
+								@click="queryByType(1)">Activated</span>
 							<span
 								:class="['words-status', articleStatusType == 0 ? 'status-selected' : 'status-default']"
-								@click="queryByType(0)">未激活</span>
+								@click="queryByType(0)">Not Activated</span>
 							<span
 								:class="['words-status', articleStatusType == 2 ? 'status-selected' : 'status-default']"
-								@click="queryByType(2)">冻结</span>
+								@click="queryByType(2)">Frozen</span>
 						</div>
 						<div class="search-me">
 							<div class="search-wrapper">
-								<input type="test" v-model="searchContent" placeholder="用户昵称" class="search-input"
+								<input type="test" v-model="searchContent" placeholder="Username" class="search-input"
 									@keyup.enter="submitSearch" />
 								<!-- <span class="search-btn">搜索</span> -->
 								<span class="search-ico-wrapper">
@@ -90,9 +90,9 @@
 						</div>
 					</div>
 					<div class="time-choose">
-						<div class="words-label">注册日期</div>
+						<div class="words-label">Registration Date</div>
 						<div>
-							<input type="text" class="input-date-picker" placeholder="开始日期 ~ 结束日期" id="choose-date">
+							<input type="text" class="input-date-picker" placeholder="Start ~ End" id="choose-date">
 						</div>
 					</div>
 				</div>
@@ -102,13 +102,13 @@
 
 						<table class="table-user">
 							<tr class="head-th">
-								<th style="width: 10%; text-align: left; padding-left: 10px;color: #222;">用户编号</th>
-								<th style="width: 15%; text-align: right; padding-right: 10px;color: #222;">媒体号昵称</th>
-								<th style="width: 15%; text-align: right; padding-right: 10px;color: #222;">手机号</th>
-								<th style="width: 19%; text-align: right; padding-right: 10px;color: #222;">邮箱</th>
-								<th style="width: 8%; text-align: right; padding-right: 10px;color: #222;">状态</th>
-								<th style="width: 15%; text-align: right; padding-right: 10px;color: #222;">注册日期</th>
-								<th style="width: 8%; text-align: right; padding-right: 10px;color: #222;">操作</th>
+								<th style="width: 10%; text-align: left; padding-left: 10px;color: #222;">User Index</th>
+								<th style="width: 15%; text-align: right; padding-right: 10px;color: #222;">Nickname</th>
+								<th style="width: 15%; text-align: right; padding-right: 10px;color: #222;">Mobile Number</th>
+								<th style="width: 19%; text-align: right; padding-right: 10px;color: #222;">Email</th>
+								<th style="width: 8%; text-align: right; padding-right: 10px;color: #222;">Status</th>
+								<th style="width: 15%; text-align: right; padding-right: 10px;color: #222;">Registration Date</th>
+								<th style="width: 8%; text-align: right; padding-right: 10px;color: #222;">Operation</th>
 							</tr>
 
 							<tr class="user-single-line" v-for="(user, index) in userList">
@@ -121,7 +121,7 @@
 								<td class="table-td-right" style="padding-right: 10px;">{{formatData(user.createdTime)}}
 								</td>
 								<td class="table-td-right" style="padding-right: 10px;"><a
-										:href="'userInfo.html?userId=' + user.id" target="_blank">查看</a></td>
+										:href="'userInfo.html?userId=' + user.id" target="_blank">Check</a></td>
 							</tr>
 
 						</table>
@@ -289,11 +289,11 @@
 			// 获得用户状态
 			getStatus(status) {
 				if (status === 0) {
-					return "未激活";
+					return "Not Activated";
 				} else if (status === 1) {
-					return "已激活";
+					return "Activated";
 				} else if (status === 2) {
-					return "冻结";
+					return "Frozen";
 				}
 				return "";
 			},
