@@ -14,7 +14,7 @@
 
 	<link rel="shortcut icon" href="img/mu-toutiao.ico" />
 
-	<title>友情链接 | 运营管理平台</title>
+	<title>Friend Link | Managing Platform</title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 					<!-- <img src="./img/face1.png" class="me-face"/> -->
 					<span class="me-nickname">{{adminUserLogin.adminName}}</span>
 					<span class="sep-line">|</span>
-					<span class="logout" @click="doLogout">注销</span>
+					<span class="logout" @click="doLogout">Logout</span>
 				</div>
 			</div>
 		</div>
@@ -41,16 +41,16 @@
 					<li class="">
 						<div class="menu-title-wrapper">
 							<img src="img/admin-ico.png" class="word-ico" />
-							<div class="menu-title">管理中心</div>
+							<div class="menu-title">Management Center</div>
 						</div>
 						<ul style="margin-top: 5px;">
-							<li class="menu-item"><a href="contentReview.html" class="menu-item-default">内容审核</a></li>
-							<li class="menu-item"><a href="userList.html" class="menu-item-default">用户管理</a></li>
-							<li class="menu-item"><a href="categoryMng.html" class="menu-item-default">文章分类</a></li>
+							<li class="menu-item"><a href="contentReview.html" class="menu-item-default">Content Audit</a></li>
+							<li class="menu-item"><a href="userList.html" class="menu-item-default">User Management</a></li>
+							<li class="menu-item"><a href="categoryMng.html" class="menu-item-default">Article Classification</a></li>
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-default">提现管理</a></li> -->
-							<li class="menu-item"><a href="friendLinks.html" class="menu-item-select">友情链接</a></li>
-							<li class="menu-item"><a href="blackList.html" class="menu-item-default">IP黑名单</a></li>
-							<li class="menu-item"><a href="adminMng.html" class="menu-item-default">设置管理员</a></li>
+							<li class="menu-item"><a href="friendLinks.html" class="menu-item-select">Friend Link</a></li>
+							<li class="menu-item"><a href="blackList.html" class="menu-item-default">IP Blacklist</a></li>
+							<li class="menu-item"><a href="adminMng.html" class="menu-item-default">Setting Administrator</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -60,29 +60,29 @@
 				<div class="edit-box">
 					<div class="mng-box">
 						<div class="single-line-enter">
-							<div class="words-label">链接名称</div>
+							<div class="words-label">Link Name</div>
 							<input type="text" v-model="friendLink.linkName" class="field-input" />
 							<input type="hidden" v-model="friendLink.id" class="field-input" />
 						</div>
 						<div class="single-line-enter">
-							<div class="words-label" style="align-self: center;">链接地址</div>
+							<div class="words-label" style="align-self: center;">Link URL</div>
 							<input type="text" v-model="friendLink.linkUrl" class="field-input" />
 						</div>
 						<div class="single-line-enter" style="display: flex; flex-direction: row;">
-							<div class="words-label">是否删除</div>
+							<div class="words-label">Delete or not</div>
 
 							<input type="radio" name="sex" class="input-sex" v-model="friendLink.isDelete" value="0"
 								checked style="align-self: center;" />
-							<span style="align-self: center;margin-left: 5px;">保留</span>
+							<span style="align-self: center;margin-left: 5px;">Keep</span>
 
 							<input type="radio" name="sex" class="input-sex" v-model="friendLink.isDelete" value="1"
 								style="margin-left: 20px;align-self: center;" />
-							<span style="align-self: center;margin-left: 5px;">删除</span>
+							<span style="align-self: center;margin-left: 5px;">Delete</span>
 						</div>
 						<div class="single-line-enter btn-submit-wrapper">
-							<button class="clear-btn" @click="clearData" style="margin-left: 10px;">清空数据</button>
+							<button class="clear-btn" @click="clearData" style="margin-left: 10px;">Clear Data</button>
 
-							<button class="submit-btn" @click="saveOrUpdate">新增/更新</button>
+							<button class="submit-btn" @click="saveOrUpdate">Submit/Update</button>
 						</div>
 					</div>
 				</div>
@@ -92,11 +92,11 @@
 
 						<table class="table-user">
 							<tr class="head-th">
-								<th style="width: 20%; text-align: left; padding-left: 30px;color: #222;">链接名称</th>
-								<th style="width: 25%; text-align: right; padding-right: 10px;color: #222;">链接地址</th>
-								<th style="width: 10%; text-align: right; padding-right: 10px;color: #222;">状态</th>
-								<th style="width: 30%; text-align: right; padding-right: 10px;color: #222;">操作时间</th>
-								<th style="width: 15%; text-align: right; padding-right: 30px;color: #222;">操作</th>
+								<th style="width: 20%; text-align: left; padding-left: 30px;color: #222;">Link Name</th>
+								<th style="width: 25%; text-align: right; padding-right: 10px;color: #222;">Link URL</th>
+								<th style="width: 10%; text-align: right; padding-right: 10px;color: #222;">Status</th>
+								<th style="width: 30%; text-align: right; padding-right: 10px;color: #222;">Operation Time</th>
+								<th style="width: 15%; text-align: right; padding-right: 30px;color: #222;">Operation</th>
 							</tr>
 
 							<tr class="user-single-line" v-for="(link, linkIndex) in  friendLinkList" :key="linkIndex">
@@ -104,14 +104,14 @@
 								<td class="table-td-right" style="padding-right: 10px;">
 									<a :href="link.linkUrl" target="_blank">{{link.linkUrl}}</a>
 								</td>
-								<td class="table-td-right" style="padding-right: 10px;">{{link.isDelete == 0 ? '保留' :
-									'删除'}}</td>
+								<td class="table-td-right" style="padding-right: 10px;">{{link.isDelete == 0 ? 'Keep' :
+									'Delete'}}</td>
 								<td class="table-td-right" style="padding-right: 10px;">{{formatData(link.updateTime)}}
 								</td>
 								<td class="table-td-right" style="padding-right: 30px;">
-									<a href="javascript:(0);" @click="modifyFriendLink(link.id)">修改</a>
+									<a href="javascript:(0);" @click="modifyFriendLink(link.id)">Modify</a>
 									&nbsp;&nbsp;
-									<a href="javascript:(0);" @click="deleteFriendLink(link.id)">删除</a>
+									<a href="javascript:(0);" @click="deleteFriendLink(link.id)">Delete</a>
 								</td>
 							</tr>
 
@@ -200,17 +200,17 @@
 				var me = this;
 
 				if (app.isEmpty(me.friendLink.linkName)) {
-					alert("友情链接名称不能为空");
+					alert("Friend Link Name Can't be Empty!");
 					return false;
 				}
 
 				if (app.isEmpty(me.friendLink.linkUrl)) {
-					alert("友情链接地址不能为空");
+					alert("Friend Link URL Can't be Empty!");
 					return false;
 				}
 
 				if (!app.isURLSimple(me.friendLink.linkUrl)) {
-					alert("友情链接地址不正确");
+					alert("Incorrect Friend Link URL");
 					return false;
 				}
 
@@ -278,7 +278,7 @@
 			// 删除友情链接
 			deleteFriendLink(linkId) {
 				var me = this;
-				var bool = window.confirm("确认删除此友情链接吗？")
+				var bool = window.confirm("Confirm deleting this friend link? ")
 				if (bool) {
 					var atoken = app.getCookie("atoken");
 					var aid = app.getCookie("aid");
