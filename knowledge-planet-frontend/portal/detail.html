@@ -141,7 +141,8 @@
                         </div>
 
                         <div class="declare">
-                            免责声明：本平台所有内容仅供测试，且文章来自互联网，不代表网的观点和立场，如有不妥，请联系后删除。
+                            Disclaimer: All contents of the platform are only for testing, and they are from the Internet, which doesn't represent our views or positions!
+                            If there is anything inappropriate or incorrect, please contact us and we will make deletion!
                         </div>
                     </div>
 
@@ -149,22 +150,22 @@
 
                         <div class="comments-words">
                             <div class="comments-words-left">
-                                <div class="comments-big">留言评论</div>
-                                <div class="comments-warn">文明上网理性发言</div>
+                                <div class="comments-big">Comment</div>
+                                <div class="comments-warn">Please comment rationally and follow the user rules</div>
                             </div>
 
                             <!-- <div class="comments-counts">{{articleDetail.commentCounts}}条评论</div> -->
-                            <div class="comments-counts">{{commentCounts}}条评论</div>
+                            <div class="comments-counts">{{commentCounts}} comments</div>
 
                         </div>
 
                         <div id="summernote" class="summernote"></div>
                         <div class="say-sth-wrapper">
-                            <button class="say-sth" @click="doComment(0)">发表评论</button>
+                            <button class="say-sth" @click="doComment(0)">submit comment</button>
                         </div>
 
                         <div class="all-comments-wrapper">
-                            <div class="all-comments">所有评论</div>
+                            <div class="all-comments">all comments</div>
                         </div>
 
                         <div class="all-comments-list-wrapper">
@@ -200,7 +201,7 @@
                                     <div class="reply-wrapper" @click="doReply(comment.commentId)">
                                         <img class="icon-reply" />
                                         <!-- src="./img/icon-reply.png"  -->
-                                        <div class="reply-words">回复</div>
+                                        <div class="reply-words">reply</div>
                                     </div>
 
                                     <!-- nowReplyingFatherCommentId: 根据当前用户正在回复的父commentId进行页面的留言看展示或隐藏 -->
@@ -208,7 +209,7 @@
                                         v-show="nowReplyingFatherCommentId==comment.commentId">
                                         <textarea :id="'reply-to-' + comment.commentId"
                                             class="reply-content"></textarea>
-                                        <button class="reply-btn" @click="replyToComment(comment.commentId)">回复</button>
+                                        <button class="reply-btn" @click="replyToComment(comment.commentId)">reply</button>
                                     </div>
                                 </div>
                             </div>
@@ -301,7 +302,7 @@
             mounted() {
                 // 初始化编辑器
                 $('#summernote').summernote({
-                    placeholder: '随便说几句吧...',
+                    placeholder: 'Leave anything here...',
                     lang: 'zh-CN',
                     height: 200,
                     width: 700,
