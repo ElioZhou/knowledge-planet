@@ -15,7 +15,7 @@
 
 	<link rel="shortcut icon" href="img/mu-toutiao.ico" />
 
-	<title>文章分类 | 运营管理平台</title>
+	<title>Article Classification | Managing Platform</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
 					<!-- <img src="./img/face1.png" class="me-face"/> -->
 					<span class="me-nickname">{{adminUserLogin.adminName}}</span>
 					<span class="sep-line">|</span>
-					<span class="logout" @click="doLogout">注销</span>
+					<span class="logout" @click="doLogout">Logout</span>
 				</div>
 			</div>
 		</div>
@@ -42,16 +42,16 @@
 					<li class="">
 						<div class="menu-title-wrapper">
 							<img src="img/admin-ico.png" class="word-ico" />
-							<div class="menu-title">管理中心</div>
+							<div class="menu-title">Management Center</div>
 						</div>
 						<ul style="margin-top: 5px;">
-							<li class="menu-item"><a href="contentReview.html" class="menu-item-default">内容审核</a></li>
-							<li class="menu-item"><a href="userList.html" class="menu-item-default">用户管理</a></li>
-							<li class="menu-item"><a href="categoryMng.html" class="menu-item-select">文章分类</a></li>
+							<li class="menu-item"><a href="contentReview.html" class="menu-item-default">Content Audit</a></li>
+							<li class="menu-item"><a href="userList.html" class="menu-item-default">User Management</a></li>
+							<li class="menu-item"><a href="categoryMng.html" class="menu-item-select">Article Classfication</a></li>
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-default">提现管理</a></li> -->
-							<li class="menu-item"><a href="friendLinks.html" class="menu-item-default">友情链接</a></li>
-							<li class="menu-item"><a href="blackList.html" class="menu-item-default">IP黑名单</a></li>
-							<li class="menu-item"><a href="adminMng.html" class="menu-item-default">设置管理员</a></li>
+							<li class="menu-item"><a href="friendLinks.html" class="menu-item-default">Friend Link</a></li>
+							<li class="menu-item"><a href="blackList.html" class="menu-item-default">IP Blacklist</a></li>
+							<li class="menu-item"><a href="adminMng.html" class="menu-item-default">Setting Administrator</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -61,13 +61,13 @@
 				<div class="edit-box">
 					<div class="mng-box">
 						<div class="single-line-enter">
-							<div class="words-label">分类名称</div>
+							<div class="words-label">Category Name</div>
 							<input type="test" v-model="category.name" class="field-input" maxlength="2" />
 							<input type="hidden" v-model="category.oldName" class="field-input" />
 							<input type="hidden" v-model="category.id" class="field-input" />
 						</div>
 						<div class="single-line-enter">
-							<div class="words-label" style="align-self: center;">分类颜色</div>
+							<div class="words-label" style="align-self: center;">Category Color</div>
 							<div class="color-picker-category"></div>
 						</div>
 						<!-- <div class="single-line-enter" style="display: flex; flex-direction: row;">
@@ -80,9 +80,9 @@
 							<span style="align-self: center;margin-left: 5px;">关闭</span>
 						</div> -->
 						<div class="single-line-enter btn-submit-wrapper">
-							<button class="clear-btn" @click="clearData" style="margin-left: 10px;">清空数据</button>
+							<button class="clear-btn" @click="clearData" style="margin-left: 10px;">Clear Data</button>
 
-							<button class="submit-btn" @click="saveOrUpdate">新增/更新</button>
+							<button class="submit-btn" @click="saveOrUpdate">Submit/Update</button>
 						</div>
 					</div>
 				</div>
@@ -92,11 +92,11 @@
 
 						<table class="table-user">
 							<tr class="head-th">
-								<th style="width: 25%; text-align: left; padding-left: 30px;color: #222;">文章分类</th>
-								<th style="width: 25%; text-align: left; color: #222;">显示效果</th>
-								<th style="width: 25%; text-align: right; padding-right: 10px;color: #222;">标签颜色</th>
+								<th style="width: 25%; text-align: left; padding-left: 30px;color: #222;">Article Classification</th>
+								<th style="width: 25%; text-align: left; color: #222;">Show Result</th>
+								<th style="width: 25%; text-align: right; padding-right: 10px;color: #222;">Label Color</th>
 								<!-- <th style="width: 20%; text-align: right; padding-right: 10px;color: #222;">是否展示</th> -->
-								<th style="width: 25%; text-align: right; padding-right: 30px;color: #222;">操作</th>
+								<th style="width: 25%; text-align: right; padding-right: 30px;color: #222;">Operation</th>
 							</tr>
 
 							<tr class="user-single-line" v-for="(cat, index) in catList" :key="index">
@@ -108,7 +108,7 @@
 								<td class="table-td-right" style="padding-right: 10px;">{{cat.tagColor}}</td>
 								<!-- <td class="table-td-right" style="padding-right: 10px;">{{cat.isShow == 1 ? '显示' : '不显示'}}</td> -->
 								<td class="table-td-right" style="padding-right: 30px;"><a href="javascript:(0);"
-										@click="modifyCategory(cat.id)">修改</a></td>
+										@click="modifyCategory(cat.id)">Modify</a></td>
 							</tr>
 
 						</table>
@@ -209,7 +209,7 @@
 				var me = this;
 
 				if (app.isEmpty(me.category.name)) {
-					alert("分类名称不能为空");
+					alert("Category Name Can't be Empty!");
 					return false;
 				}
 
@@ -285,7 +285,7 @@
 				}
 
 				if (pendingCat == null) {
-					alert("你的数据有误，请刷新页面或联系管理员！");
+					alert("Your Data has error, please refresh the page or contact Administrator! ");
 					return false;
 				}
 
