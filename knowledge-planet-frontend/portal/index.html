@@ -23,7 +23,7 @@
 
 	<link rel="shortcut icon" href="img/mu-toutiao.ico" />
 
-	<title>新闻</title>
+	<title>News</title>
 </head>
 
 <body>
@@ -56,13 +56,13 @@
 				<div class="right-part">
 					<!-- 如果登录则不显示 -->
 					<block v-if="userInfo == null">
-						<a href="javascript:(0);" @click="doLogin()" target="_blank" class="white-header-right-start">登录
-							| 注册</a>
+						<a href="javascript:(0);" @click="doLogin()" target="_blank" class="white-header-right-start">Login
+							| Register</a>
 					</block>
 					<a href="javascript:(0);" @click="goWriterCenter()" target="_blank"
-						class="white-header-right">作家中心</a>
+						class="white-header-right">Writor Centor</a>
 					<a href="javascript:(0);" @click="goAdminCenter()" target="_blank" class="white-header-right"
-						style="margin-right: 20px;">管理平台</a>
+						style="margin-right: 20px;">Managing Platform</a>
 				</div>
 			</div>
 		</div>
@@ -102,7 +102,7 @@
 										&nbsp;&nbsp;{{article.publisherVO.nickname}}&nbsp;⋅</div>
 								</a>
 
-								<div class="article-name">&nbsp;{{article.readCounts}}阅读&nbsp;⋅</div>
+								<div class="article-name">&nbsp;{{article.readCounts}}views&nbsp;⋅</div>
 
 								<!-- <div class="publish-time">&nbsp;{{formatData(article.publishTime)}}</div> -->
 								<div class="publish-time">&nbsp;{{getDateBeforeNow(article.publishTime)}}</div>
@@ -120,7 +120,7 @@
 				<div id="search">
 					<div class="search-box">
 						<div class="box-wrapper">
-							<input type="text" class="search-content" v-model="keyword" placeholder="请输入搜索内容">
+							<input type="text" class="search-content" v-model="keyword" placeholder="please type your search">
 
 							<button class="search-btn" @click="searchArticle">搜索</button>
 						</div>
@@ -133,7 +133,7 @@
 						<div class="my-info">
 
 							<div class="div-log-out">
-								<a href="javascript:void(0);" class="link-log-out" @click="logout">退出登录</a>
+								<a href="javascript:void(0);" class="link-log-out" @click="logout">Logout</a>
 							</div>
 
 							<div class="my-face">
@@ -148,7 +148,7 @@
 								<div class="my-subscribe">
 									<div class="fans-info-num item-center">{{userInfo.myFollowCounts == null ? 0 :
 										userInfo.myFollowCounts}}</div>
-									<div class="fans-info-word item-center">关注</div>
+									<div class="fans-info-word item-center">Subscribe</div>
 								</div>
 
 								<div class="middle-line"></div>
@@ -156,7 +156,7 @@
 								<div class="my-fans">
 									<div class="fans-info-num item-center">{{userInfo.myFansCounts == null ? 0 :
 										userInfo.myFansCounts}}</div>
-									<div class="fans-info-word item-center">粉丝</div>
+									<div class="fans-info-word item-center">Fans</div>
 								</div>
 							</div>
 
@@ -166,7 +166,7 @@
 
 				<!-- 24小时热文 -->
 				<div id="hotNews" class="hot-news">
-					<div class="hot-title">最新热闻</div>
+					<div class="hot-title">Hot News</div>
 
 					<div class="hot-items" v-for="(hotArticle, hotIndex) in hotArticleList" :key="hotIndex">
 						<div class="hot-single" v-show="hotArticle.articleCover != ''">
@@ -191,7 +191,7 @@
 
 				<!-- 友情链接 -->
 				<div id="friendLinks" class="friend-links">
-					<div class="friend-title">友情链接</div>
+					<div class="friend-title">Friend Links</div>
 
 					<a :href="link.linkUrl" target="_blank" class="friend-link-item"
 						v-for="(link, lindex) in friendLinkList" :key="lindex">{{link.linkName}}</a>
@@ -218,7 +218,7 @@
 	var index = new Vue({
 		el: "#index",
 		data: {
-			indexMsg: "这里显示文章列表",
+			indexMsg: "Here shows the article list",
 			keyword: "",
 			userInfo: null,
 
