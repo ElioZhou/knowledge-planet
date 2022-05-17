@@ -17,7 +17,7 @@
 
 	<link rel="shortcut icon" href="img/mu-toutiao.ico" />
 
-	<title>IP黑名单 | 运营管理平台</title>
+	<title>IP BlackList | Managing Platform</title>
 </head>
 
 <body>
@@ -31,7 +31,7 @@
 					<!-- <img src="./img/face1.png" class="me-face"/> -->
 					<span class="me-nickname">{{adminUserLogin.adminName}}</span>
 					<span class="sep-line">|</span>
-					<span class="logout" @click="doLogout">注销</span>
+					<span class="logout" @click="doLogout">Logout</span>
 				</div>
 			</div>
 		</div>
@@ -44,16 +44,16 @@
 					<li class="">
 						<div class="menu-title-wrapper">
 							<img src="img/admin-ico.png" class="word-ico" />
-							<div class="menu-title">管理中心</div>
+							<div class="menu-title">Management Center</div>
 						</div>
 						<ul style="margin-top: 5px;">
-							<li class="menu-item"><a href="contentReview.html" class="menu-item-default">内容审核</a></li>
-							<li class="menu-item"><a href="userList.html" class="menu-item-default">用户管理</a></li>
-							<li class="menu-item"><a href="categoryMng.html" class="menu-item-default">文章分类</a></li>
+							<li class="menu-item"><a href="contentReview.html" class="menu-item-default">Content Audit</a></li>
+							<li class="menu-item"><a href="userList.html" class="menu-item-default">User Management</a></li>
+							<li class="menu-item"><a href="categoryMng.html" class="menu-item-default">Article Classification</a></li>
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-default">提现管理</a></li> -->
-							<li class="menu-item"><a href="friendLinks.html" class="menu-item-default">友情链接</a></li>
-							<li class="menu-item"><a href="blackList.html" class="menu-item-select">IP黑名单</a></li>
-							<li class="menu-item"><a href="adminMng.html" class="menu-item-default">设置管理员</a></li>
+							<li class="menu-item"><a href="friendLinks.html" class="menu-item-default">FriendLink</a></li>
+							<li class="menu-item"><a href="blackList.html" class="menu-item-select">IP Blacklist</a></li>
+							<li class="menu-item"><a href="adminMng.html" class="menu-item-default">Setting Administrator</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -63,20 +63,20 @@
 				<div class="edit-box">
 					<div class="mng-box">
 						<div class="single-line-enter">
-							<div class="words-label">禁封IP</div>
+							<div class="words-label">Banning IP</div>
 							<input type="text" v-model="blackList.blackIP" class="field-input" maxlength="20" />
 						</div>
 						<div class="single-line-enter">
-							<div class="words-label" style="align-self: center;">备注</div>
+							<div class="words-label" style="align-self: center;">Remark</div>
 							<input type="text" v-model="blackList.remark" class="field-input" maxlength="20" />
 						</div>
 						<div class="single-line-enter btn-submit-wrapper">
-							<button class="clear-btn" @click="clearData" style="margin-left: 10px;">清空数据</button>
+							<button class="clear-btn" @click="clearData" style="margin-left: 10px;">Clear Data</button>
 
-							<button class="submit-btn" @click="addBlack">确认添加</button>
+							<button class="submit-btn" @click="addBlack">Confirm Submit</button>
 						</div>
 						<div class="single-line-enter notice">
-							* 添加IP到黑名单后，该IP用户将无法访问网站~
+							* Add the IP to the Blacklist and the user of this IP will not be able to access the site~
 						</div>
 					</div>
 				</div>
@@ -84,28 +84,28 @@
 				<div id="user-list-wrapper" class="user-list-wrapper">
 
 					<div class="single-line-enter">
-						<input type="text" v-model="queryIp" class="field-input" maxlength="20" placeholder="查询IP" />
-						<button class="query-btn" @click="addBlack">查询</button>
+						<input type="text" v-model="queryIp" class="field-input" maxlength="20" placeholder="QueryIP" />
+						<button class="query-btn" @click="addBlack">Query</button>
 					</div>
 
 					<div class="user-list">
 
 						<table class="table-user">
 							<tr class="head-th">
-								<th style="width: 20%; text-align: left; padding-left: 30px;color: #222;">封禁IP</th>
-								<th style="width: 20%; text-align: right; padding-right: 10px;color: #222;">备注</th>
-								<th style="width: 20%; text-align: right; padding-right: 10px;color: #222;">操作时间</th>
-								<th style="width: 20%; text-align: right; padding-right: 30px;color: #222;">操作</th>
+								<th style="width: 20%; text-align: left; padding-left: 30px;color: #222;">Banned IP</th>
+								<th style="width: 20%; text-align: right; padding-right: 10px;color: #222;">Remark</th>
+								<th style="width: 20%; text-align: right; padding-right: 10px;color: #222;">Operation Time</th>
+								<th style="width: 20%; text-align: right; padding-right: 30px;color: #222;">Operation</th>
 							</tr>
 
 							<tr class="user-single-line">
 								<td class="table-td-left" style="padding-left: 30px;">10.16.124.6</td>
 								<td class="table-td-right" style="padding-right: 10px;">
-									封了
+									Banned
 								</td>
 								<td class="table-td-right" style="padding-right: 10px;">2019-12-12 14:13:12</td>
 								<td class="table-td-right" style="padding-right: 30px;"><a href="javascript:(0);"
-										@click="deleteIP(1011)">删除</a></td>
+										@click="deleteIP(1011)">Delete</a></td>
 							</tr>
 
 						</table>
