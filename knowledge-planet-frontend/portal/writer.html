@@ -16,7 +16,7 @@
 
     <link rel="shortcut icon" href="img/mu-toutiao.ico" />
 
-    <title id="writerTitle">[作者名称]的个人主页</title>
+    <title id="writerTitle">[Writor] homepage</title>
 </head>
 
 <body>
@@ -48,14 +48,14 @@
                 <div class="right-part">
                     <!-- 如果登录则不显示 -->
                     <block v-if="userInfo == null">
-                        <a href="javascript:(0);" @click="doLogin()" target="_blank" class="white-header-right-start">登录
-                            | 注册</a>
+                        <a href="javascript:(0);" @click="doLogin()" target="_blank" class="white-header-right-start">Login
+                            | Registor</a>
                     </block>
 
                     <a href="javascript:(0);" @click="goWriterCenter()" target="_blank"
-                        class="white-header-right">作家中心</a>
+                        class="white-header-right">Writor Center</a>
                     <a href="javascript:(0);" @click="goAdminCenter()" target="_blank" class="white-header-right"
-                        style="margin-right: 20px;">管理平台</a>
+                        style="margin-right: 20px;">Managing Platform</a>
                 </div>
             </div>
         </div>
@@ -73,9 +73,9 @@
                     </div>
                     <div class="writer-name">{{writerInfo.nickname}}</div>
                     <button class="pay-attention" @click="beYourFan(writerInfo.id, userInfo.id)"
-                        v-show="!isFollowWriter && userInfo != null && userInfo != undefined">关注我</button>
+                        v-show="!isFollowWriter && userInfo != null && userInfo != undefined">Subscribe</button>
                     <button class="already-pay-attention" @click="notYourFan(writerInfo.id, userInfo.id)"
-                        v-show="isFollowWriter && userInfo != null && userInfo != undefined">已关注</button>
+                        v-show="isFollowWriter && userInfo != null && userInfo != undefined">Subscribed</button>
                 </div>
             </div>
 
@@ -84,7 +84,7 @@
                 <div class="writer-articles-wrapper">
 
                     <div class="tabs">
-                        <div class="tab-item">文章</div>
+                        <div class="tab-item">Article</div>
                     </div>
                     <div class="writer-articles">
                         <div id="articleList" class="article-list">
@@ -118,7 +118,7 @@
                                                 &nbsp;&nbsp;{{article.publisherVO.nickname}}&nbsp;⋅</div>
 
 
-                                            <div class="article-name">&nbsp;{{article.readCounts}}阅读&nbsp;⋅</div>
+                                            <div class="article-name">&nbsp;{{article.readCounts}}views&nbsp;⋅</div>
 
                                             <div class="publish-time">&nbsp;{{formatData(article.publishTime)}}</div>
                                             <!-- <div class="publish-time">&nbsp;{{getDateBeforeNow(article.publishTime)}}</div> -->
@@ -145,20 +145,20 @@
                             <div class="inner-flex sign">
                                 <span class="counts-words">{{writerInfo.myFollowCounts == null ? 0 :
                                     writerInfo.myFollowCounts}}</span>
-                                <span class="counts-cn-words">关注</span>
+                                <span class="counts-cn-words">Subscribe</span>
                             </div>
                             <div class="middle-line"></div>
                             <div class="inner-flex">
                                 <span class="counts-words">{{writerInfo.myFansCounts == null ? 0 :
                                     writerInfo.myFansCounts}}</span>
-                                <span class="counts-cn-words">粉丝</span>
+                                <span class="counts-cn-words">Fans</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="recent-wrapper">
                         <div class="recent">
-                            <div class="recent-words">近期佳文</div>
+                            <div class="recent-words">Recent great ones</div>
 
                             <div class="recent-articles">
 
@@ -169,7 +169,7 @@
                                     </div>
                                     <div class="recent-article-title">
                                         <div class="recent-title">{{article.title}}</div>
-                                        <div class="read-counts">{{article.readCounts}}阅读</div>
+                                        <div class="read-counts">{{article.readCounts}}views</div>
                                     </div>
                                 </div>
 
@@ -320,7 +320,7 @@
                             if (res.data.status == 200) {
                                 var userInfo = res.data.data;
                                 me.writerInfo = userInfo;
-                                $("#writerTitle").html(userInfo.nickname + "的个人主页 - 新闻");
+                                $("#writerTitle").html(userInfo.nickname + "homepage - news");
                             } else {
                                 console.log(res.data.msg);
                                 // 发生错误，直接return null
