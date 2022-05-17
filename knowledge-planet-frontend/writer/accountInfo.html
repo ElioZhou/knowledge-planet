@@ -15,7 +15,7 @@
 
 	<link rel="shortcut icon" href="img/mu-toutiao.ico" />
 
-	<title>媒体号作家中心 | 账号信息</title>
+	<title>Writor Center | Account Info</title>
 </head>
 
 <body>
@@ -42,27 +42,27 @@
 					<li class="">
 						<div class="menu-title-wrapper">
 							<img src="img/media-ico.png" class="word-ico" />
-							<div class="menu-title">媒体中心</div>
+							<div class="menu-title">Media Center</div>
 						</div>
 						<ul>
 							<li class="menu-item">
 								<a href="contentMng.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">内容管理</a>
+									v-if="userInfo.activeStatus == 1">Content Management</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">内容管理</a>
+									v-if="userInfo.activeStatus == 0">Content Management</a>
 							</li>
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-select">主页</a></li> -->
 							<li class="menu-item">
 								<a href="createArticle.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">发头条</a>
+									v-if="userInfo.activeStatus == 1">headline</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">发头条</a>
+									v-if="userInfo.activeStatus == 0">headline</a>
 							</li>
 							<li class="menu-item">
 								<a href="commentMng.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">评论管理</a>
+									v-if="userInfo.activeStatus == 1">comment management</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">评论管理</a>
+									v-if="userInfo.activeStatus == 0">comment management</a>
 							</li>
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-default">打赏记录</a></li> -->
 						</ul>
@@ -73,26 +73,26 @@
 					<li class="">
 						<div class="menu-title-wrapper">
 							<img src="img/user-ico.png" class="word-ico" />
-							<div class="menu-title">个人账号</div>
+							<div class="menu-title">Personal Account</div>
 						</div>
 						<ul>
 							<li class="menu-item">
 								<a href="accountInfo.html" class="menu-item-select"
-									v-if="userInfo.activeStatus == 1">账号设置</a>
+									v-if="userInfo.activeStatus == 1">Account Setting</a>
 								<a href="javascript:void(0);" class="menu-item-select"
-									v-if="userInfo.activeStatus == 0">账号设置</a>
+									v-if="userInfo.activeStatus == 0">Account Setting</a>
 							</li>
 							<li class="menu-item">
 								<a href="myFans.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">我的粉丝</a>
+									v-if="userInfo.activeStatus == 1">My fans</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">我的粉丝</a>
+									v-if="userInfo.activeStatus == 0">My fans</a>
 							</li>
 							<li class="menu-item">
 								<a href="myFansCharts.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">粉丝画像</a>
+									v-if="userInfo.activeStatus == 1">Fans Portrait</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">粉丝画像</a>
+									v-if="userInfo.activeStatus == 0">Fans Portrait</a>
 							</li>
 
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-default">收益提现</a></li> -->
@@ -105,39 +105,39 @@
 			<div class="main-page">
 				<div class="title-box">
 					<div class="title-wrapper">
-						<span class="title-word">账号设置</span>
+						<span class="title-word">Account Setting</span>
 					</div>
 				</div>
 
 				<div class="account-wrapper">
 					<div class="middle-wrapper">
 						<div class="every-line">
-							<div class="pre-label">媒体号昵称</div>
+							<div class="pre-label">Nickname</div>
 							<!-- 判断，刚注册，需要输入昵称，用于展示媒体号的名称，否则用户状态为“待完善资料”，完善以后才能发文以及留言点赞啥的 -->
 							<!-- <div class="info-words"></div> -->
 							<div class="info-words"><input id="nickname" name="nickname"
-									v-model="userAccountInfo.nickname" placeholder="请输入媒体号名称" maxlength="12"
+									v-model="userAccountInfo.nickname" placeholder="Enter Nickname" maxlength="12"
 									class="input-nickname" /></div>
 						</div>
 						<div class="every-line">
-							<div class="pre-label">媒体号头像</div>
+							<div class="pre-label">Portrait</div>
 							<div class="info-face">
 								<div class="choose-face-wrapper">
 									<img id="user-face" :src="userAccountInfo.face" class="user-face" />
-									<div class="choose-face">选择头像</div>
-									<input type="file" id="inputPic" class="inputPic" value="重新选择" @change="uploadFace"
+									<div class="choose-face">Select Portrait</div>
+									<input type="file" id="inputPic" class="inputPic" value="Reselect" @change="uploadFace"
 										@mouseover="mouseOver" @mouseout="mouseOut"
 										accept="image/jpeg,image/jpg,image/png">
 								</div>
-								<div class="upload-suggest">请上传尺寸200X200像素，能够代表形象的图片，请勿使用低俗/二维码/广告的头像</div>
+								<div class="upload-suggest">Please upload 200x200 image, please don't use illegal/QR code/Advertisement images</div>
 							</div>
 						</div>
 						<div class="every-line">
-							<div class="pre-label">真实姓名</div>
+							<div class="pre-label">Realname</div>
 							<!-- 判断，刚注册，需要输入真实姓名，否则用户状态为“待完善资料”，完善以后才能发文以及留言点赞啥的 -->
 							<!-- <div class="info-words" v-if="userInfo.activeStatus == 1">网</div> -->
 							<div class="info-words"><input id="realname" name="realname"
-									v-model="userAccountInfo.realname" placeholder="请输入真实姓名" maxlength="10"
+									v-model="userAccountInfo.realname" placeholder="Enter realname" maxlength="10"
 									class="input-realname" /></div>
 						</div>
 						<!-- <div class="every-line">
@@ -149,11 +149,11 @@
 							<div class="pre-label">生日</div>
 							<!-- 判断，刚注册，需要输入生日日期，否则用户状态为“待完善资料”，完善以后才能发文以及留言点赞啥的 -->
 							<!-- <div class="info-words">1999-08-08</div> -->
-							<div class="info-words"><input id="birthday" name="birthday" placeholder="请选择日期"
+							<div class="info-words"><input id="birthday" name="birthday" placeholder="Choose Date"
 									maxlength="18" class="input-idcard" /></div>
 						</div>
 						<div class="every-line">
-							<div class="pre-label">性别</div>
+							<div class="pre-label">Gender</div>
 							<!-- 判断，刚注册，需要输入真实身份证，否则用户状态为“待完善资料”，完善以后才能发文以及留言点赞啥的 -->
 							<!-- <div class="info-words" v-if="userInfo.activeStatus == 1">
 								<span v-if="userAccountInfo.sex == 1">
@@ -165,13 +165,13 @@
 							</div> -->
 							<div class="info-words">
 								<input type="radio" name="sex" v-model="userAccountInfo.sex" class="input-sex" value="1"
-									checked /> 男生
+									checked /> Male
 								<input type="radio" name="sex" v-model="userAccountInfo.sex" class="input-sex" value="0"
-									style="margin-left: 20px;" /> 女生
+									style="margin-left: 20px;" /> Female
 							</div>
 						</div>
 						<div class="every-line">
-							<div class="pre-label">所在城市</div>
+							<div class="pre-label">City</div>
 							<!-- <div class="info-words" v-if="userInfo.activeStatus == 1">{{userAccountInfo.province}}/{{userAccountInfo.city}}/{{userAccountInfo.district}}</div> -->
 							<div style="position: relative;">
 								<!-- container -->
@@ -180,20 +180,20 @@
 							</div>
 						</div>
 						<div class="every-line">
-							<div class="pre-label">注册手机</div>
+							<div class="pre-label">Mobile Number</div>
 							<div class="info-words">{{userAccountInfo.mobile}}</div>
 						</div>
 						<div class="every-line">
-							<div class="pre-label">联系邮箱</div>
+							<div class="pre-label">Contat Email</div>
 							<!-- TODO: 判断，刚注册，需要输入邮箱，否则用户状态为“待完善资料”，完善以后才能发文以及留言点赞啥的 -->
 							<!-- <div class="info-words">admin@knowledgeplanet.com</div> -->
 							<div class="info-words"><input id="email" name="email" v-model="userAccountInfo.email"
-									placeholder="请输入邮箱" maxlength="36" class="input-email" /></div>
+									placeholder="Enter email" maxlength="36" class="input-email" /></div>
 						</div>
 					</div>
 					<div class="submit-wrapper">
 						<!-- FIXME: 除了头像以外，其他信息都用按钮提交，如果用户状态已经完善过信息，则按钮不显示 -->
-						<button class="submit-btn" @click="submitUserInfo">提交信息</button>
+						<button class="submit-btn" @click="submitUserInfo">Submit all</button>
 					</div>
 				</div>
 
@@ -266,7 +266,7 @@
 				var uid = app.getCookie("uid");
 
 				if (app.isEmpty(utoken) || app.isEmpty(uid)) {
-					alert("请登录后再使用媒体中心的相关页面！");
+					alert("Please use the account center related page after logging in! ");
 					window.location = app.writerLoginUrl;
 					return false;
 				}
@@ -315,21 +315,21 @@
 				var city = $('#city-picker').data('citypicker').getVal();
 
 				if (app.isEmpty(userAccountInfo.nickname)) {
-					alert("媒体号不能为空");
+					alert("Nickname Can't be Empty!");
 					$("#nickname")[0].focus()
 					return false;
 				}
 				if (userAccountInfo.nickname.length > 12) {
-					alert("媒体号长度不能超过12");
+					alert("Nickname Can't exceed 12 characters");
 					$("#nickname")[0].focus();
 					return false;
 				}
 				if (app.isEmpty(userAccountInfo.realname)) {
-					alert("媒体人真实姓名不能为空");
+					alert("Realname Can't be Empty!");
 					return false;
 				}
 				if (userAccountInfo.realname.length > 10) {
-					alert("媒体人真实姓名长度不能太长");
+					alert("Realname Can't be too long");
 					return false;
 				}
 				// if (app.isEmpty(userAccountInfo.idcard)) {
@@ -342,21 +342,21 @@
 				// }
 				var birthday = $("#birthday").val();
 				if (app.isEmpty(birthday)) {
-					alert("生日不能为空");
+					alert("Birthday Can't be Empty!");
 					return false;
 				}
 				if (userAccountInfo.sex != "1" && userAccountInfo.sex != "0") {
-					alert("请选择一个性别");
+					alert("Please choose a gender");
 					return false;
 				}
 				if (app.isEmpty(city)) {
-					alert("请选择所在城市");
+					alert("Please choose your city");
 					return false;
 				}
 				var cityArray = city.split("/");
 				// console.log(cityArray);
 				if (cityArray.length != 3) {
-					alert("请选择完整的省市区");
+					alert("Please choose state");
 					return false;
 				}
 				var province = cityArray[0];
@@ -367,12 +367,12 @@
 				console.log(district);
 
 				if (app.isEmpty(userAccountInfo.email)) {
-					alert("邮箱不能为空");
+					alert("Email Can't be Empty!");
 					return false;
 				}
 				var checkEmail = app.checkEmail(userAccountInfo.email);
 				if (!checkEmail) {
-					alert('请输入有效的邮箱地址');
+					alert('Please use valid email');
 					return;
 				}
 
@@ -397,7 +397,7 @@
 						console.log(res.data);
 
 						if (res.data.status == 200) {
-							alert("信息更新成功！");
+							alert("Update Succesfully！");
 
 							// 更新完毕以后，删除用户的sessionStorage信息，然后重新查询，目的用于更新用户的基本信息
 							app.deleteUserInfo();
@@ -443,7 +443,7 @@
 					})
 					.then(res => {
 						if (res.data.status == 200) {
-							alert("头像上传成功! 请提交用户信息以更新");
+							alert("Uploaded Successfully! Please submit information to update");
 							console.log(res.data.data);
 							me.userAccountInfo.face = res.data.data;
 						} else {
