@@ -26,7 +26,7 @@
 
     <link rel="shortcut icon" href="img/mu-toutiao.ico" />
 
-    <title id="pageTitle">[此处显示文章title]</title>
+    <title id="pageTitle">[Here Shows the Article title]</title>
 </head>
 
 <body>
@@ -58,13 +58,13 @@
                 <div class="right-part">
                     <!-- 如果登录则不显示 -->
                     <block v-if="userInfo == null">
-                        <a href="javascript:(0);" @click="doLogin()" target="_blank" class="white-header-right-start">登录
-                            | 注册</a>
+                        <a href="javascript:(0);" @click="doLogin()" target="_blank" class="white-header-right-start">Login
+                            | Register</a>
                     </block>
                     <a href="javascript:(0);" @click="goWriterCenter()" target="_blank"
-                        class="white-header-right">作家中心</a>
+                        class="white-header-right">Writer Center</a>
                     <a href="javascript:(0);" @click="goAdminCenter()" target="_blank" class="white-header-right"
-                        style="margin-right: 20px;">管理平台</a>
+                        style="margin-right: 20px;">Managing Platform</a>
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@
                 {{articleDetail.title}}
             </div>
             <div class="read-counts" v-show="articleDetail.readCounts != '' && articleDetail.readCounts != null">
-                阅读量：{{articleDetail.readCounts}}
+                views：{{articleDetail.readCounts}}
             </div>
 
             <div class="detail-really">
@@ -99,21 +99,21 @@
                     </div>
 
                     <div class="knowledgeplanet-words">
-                        <span class="knowledgeplanet-num">媒体号</span>
+                        <span class="knowledgeplanet-num">Account Number</span>
                     </div>
 
                     <div class="share-title">
-                        <span class="share-words">分享</span>
+                        <span class="share-words">Share</span>
                     </div>
                     <div class="back-line"></div>
 
                     <div class="social-line" @click="shareWeiBo">
                         <img src="./img/social/weibo.png" class="social-pic" />
-                        <span class="social-words">微博</span>
+                        <span class="social-words">weibo</span>
                     </div>
                     <div class="social-line" @click="shareDouBan">
                         <img src="./img/social/douban.png" class="social-pic" />
-                        <span class="social-words">豆瓣</span>
+                        <span class="social-words">douban</span>
                     </div>
                     <div class="social-line" @click="shareQQ">
                         <img src="./img/social/qq.png" class="social-pic" />
@@ -121,15 +121,15 @@
                     </div>
                     <div class="social-line" @click="shareQZone">
                         <img src="./img/social/qzone.png" class="social-pic" />
-                        <span class="social-words">QQ空间</span>
+                        <span class="social-words">qzone</span>
                     </div>
                     <div class="social-line" @click="shareWeChat">
-                        <div class="social-share" data-wechat-qrcode-title="请打开微信扫一扫"
+                        <div class="social-share" data-wechat-qrcode-title="Please Open Wechat Scan"
                             data-disabled="google,twitter,facebook,douban,qzone,qq,weibo,tencent,linkedin,diandian">
                             <!-- <img src="./img/social/wechat.png" class="social-pic"/> -->
                             <!-- <span class="social-words">微信</span> -->
                         </div>
-                        <span class="social-words">微信</span>
+                        <span class="social-words">Wechat</span>
                     </div>
                 </div>
 
