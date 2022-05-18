@@ -13,7 +13,7 @@
 
 	<link rel="shortcut icon" href="img/mu-toutiao.ico" />
 
-	<title>媒体号作家中心 | 发文章</title>
+	<title>Writer Center | Publish Article</title>
 </head>
 
 <body style="background-color: #f8f8f8;">
@@ -34,7 +34,7 @@
 		<div id="editor2" class="editor-container">
 
 			<div class="article-title-wrapper">
-				<input id="title" class="article-title" placeholder="请输入文字标题（6-30长度）" v-model="articleTitle" maxlength="30"/>
+				<input id="title" class="article-title" placeholder="Please type title (6-30 words) " v-model="articleTitle" maxlength="30"/>
 			</div>
 
 			<div class="article-content-wrapper">
@@ -43,7 +43,7 @@
 
 			<div class="other-info">
 				<div class="cover-wrapper">
-					<div class="cover">文章领域</div>
+					<div class="cover">Article Zone</div>
 					<div class="choose-type">
 						<!-- <select v-model="articleCategory">
 							<option value="0">请选择</option>
@@ -59,10 +59,10 @@
 					</div>
 				</div>
 				<div class="cover-wrapper">
-					<div class="cover">文章封面</div>
+					<div class="cover">Article Cover</div>
 					<div class="choose-type">
-						<div><input type="radio" name="articleType" v-model="articleType" value="1" checked/><span class="choose-words">单封面</span></div>
-						<div style="margin-left: 30px;"><input type="radio" v-model="articleType" value="2" name="articleType"/><span class="choose-words">无封面</span></div>
+						<div><input type="radio" name="articleType" v-model="articleType" value="1" checked/><span class="choose-words">Single Cover</span></div>
+						<div style="margin-left: 30px;"><input type="radio" v-model="articleType" value="2" name="articleType"/><span class="choose-words">No Cover</span></div>
 					</div>
 				</div>
 				<div class="cover-wrapper" v-show="articleType==1">
@@ -74,22 +74,22 @@
 							</div>
 							<input type="file" @change="uploadCover" @mouseover="mouseOver" @mouseout="mouseOut" id="inputPic" class="inputPic" accept="image/jpeg,image/jpg,image/png">
 						</div>
-						<div style="margin-top: 10px; color: #9b9d9e;">请上传JPG、JPEG、PNG格式的封面图噢~</div>
+						<div style="margin-top: 10px; color: #9b9d9e;">Please upload JPG/JPEG/PNG Cover~</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="publish-bottom">
 				<div class="buttons">
-					<button class="white-btn" type="button" @click="goBack">返回</button>
-					<button class="white-btn" type="button" @click="preview">预览</button>
+					<button class="white-btn" type="button" @click="goBack">back</button>
+					<button class="white-btn" type="button" @click="preview">preview</button>
 					<!-- <button class="white-btn" type="button" @click="save">保存草稿</button> -->
 					<!-- FIXME: 计算剩余时间，使用RMQ延时队列，或分布式定时任务 -->
 					<button class="white-btn" type="button" @click="doTiming">{{appointWords}}</button>
 					
-					<input type="text" class="timing-date-picker" placeholder="定时日期" id="choose-date" v-show="isAppoint==1" readonly>
+					<input type="text" class="timing-date-picker" placeholder="Appointment Date" id="choose-date" v-show="isAppoint==1" readonly>
 
-					<button class="red-btn" type="button" @click="publish">发布文章</button>
+					<button class="red-btn" type="button" @click="publish">publish</button>
 				</div>
 			</div>
 		</div>
@@ -123,7 +123,7 @@
 			catList: [],
 
 			isAppoint: 0,		// 2：即时发布，1：定时发布
-			appointWords: "定时发布",
+			appointWords: "Publish Appointment",
 
 			articleTitle: "",
 			articleCategory: 0,		// 文章领域
@@ -145,7 +145,7 @@
 
 			// 初始化编辑器
 			$('#summernote').summernote({
-				placeholder: '请输入正文...',
+				placeholder: 'Please type here...',
 				lang: 'zh-CN',
 				height: 600,
 				width: 800,
@@ -213,7 +213,7 @@
 								}
 
 								if (imagesList.length < files.length) {
-									alert("你有" + (files.length - imagesList.length) + "张图片上传失败，\n请保证图片不能为空，并且符合 jpg/png/jpeg 的后缀格式！");
+									alert("There are" + (files.length - imagesList.length) + " images upload failed，\n Please make sure image is not empty and are jpg/png/jpeg!");
 								}
 								
 								// <img src="./img/knowledgeplanet-logo.png" class="center-logo"/>
@@ -256,7 +256,7 @@
 
 				var articleTitle = me.articleTitle;
 				if (app.isEmpty(articleTitle)) {
-					alert("文章标题不能为空");
+					alert("Title Can't be Empty!");
 					return false;
 				}
 
@@ -264,12 +264,12 @@
 				var articleContent = $('#summernote').summernote('code');
 				console.log(articleContent);
 				if (app.isEmpty(articleContent)) {
-					alert("文章内容不能为空");
+					alert("Content Can't be Empty!");
 					return false;
 				}
 
 				if (articleContent.length > 9999) {
-					alert("文章内容不能超过10000个字");
+					alert("Content Can't exceed 9999 words!");
 					return false;
 				}
 
@@ -298,7 +298,7 @@
 
 					if (res.data.status == 200) {
 						var catList = res.data.data;
-						var tempCat = {"id":0,"name":"请选择"};
+						var tempCat = {"id":0,"name":"Please Choose"};
 						catList.unshift(tempCat);
 						me.catList = catList;
 					} else {
@@ -311,12 +311,12 @@
 				var me = this;
 				if (me.isAppoint == 1) {
 					me.isAppoint = 0;
-					me.appointWords = "定时发布";
+					me.appointWords = "Publish Appointment";
 					me.timingDate = "";
 					$("#choose-date").val("");
 				} else if (me.isAppoint == 0) {
 					me.isAppoint = 1;
-					me.appointWords = "取消定时";
+					me.appointWords = "Cancel Appointment";
 				}
 				
 			},
@@ -326,14 +326,14 @@
 
 				if (me.isAppoint == 1) {
 					if (app.isEmpty(me.timingDate)) {
-						alert("请选择一个定时发布的时间");
+						alert("Please select an appointment date");
 						return false;
 					}
 				}
 
 				var articleTitle = me.articleTitle;
 				if (app.isEmpty(articleTitle)) {
-					alert("文章标题不能为空");
+					alert("Title Can't be Empty!");
 					return false;
 				}
 
@@ -341,18 +341,18 @@
 				var articleContent = $('#summernote').summernote('code');
 				console.log(articleContent);
 				if (app.isEmpty(articleContent)) {
-					alert("文章内容不能为空");
+					alert("Content Can't be Empty!");
 					return false;
 				}
 
 				if (articleContent.length > 9999) {
-					alert("文章内容不能超过10000个字");
+					alert("Content Can't exceed 10000 words");
 					return false;
 				}
 
 				var articleCategory = me.articleCategory;
 				if (articleCategory == 0) {
-					alert("请选择一个文章领域");
+					alert("Please select an area");
 					return false;
 				}
 
@@ -360,14 +360,14 @@
 				console.log("articleContent=" + articleType);
 
 				if (articleType != 1 && articleType != 2) {
-					alert("请选择文章封面类型");
+					alert("Please choose the cover type");
 					return false;
 				}
 
 				var articleCover = me.articleCover;
 				if (articleType == 1) {
 					if (app.isEmpty(articleCover)) {
-						alert("请上传一个封面吧");
+						alert("Please upload a cover");
 						return false;
 					}	
 				}
@@ -401,7 +401,7 @@
 					if (res.data.status == 200) {
 						// var userAccountInfo = res.data.data;
 						// console.log(userAccountInfo);
-						alert("文章创建成功，待审核通过后将在首页展示~");
+						alert("Article published successfully, it will be shown after audit~");
 						window.location = app.writerIndexUrl;
 					} else {
 						alert(res.data.msg);
@@ -443,7 +443,7 @@
 							console.log(res.data.data);
 
 							if (imagesList.length < 1) {
-								alert("张图片上传失败，请保证图片不能为空，并且符合 jpg/png/jpeg 的后缀格式！");
+								alert("images upload failed, please make sure image is not empty, and are jpg/png/jpeg!");
 							} else {
 								me.articleCover = imagesList[0];
 								
