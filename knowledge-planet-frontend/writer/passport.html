@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>媒体号作家中心 - 注册/登录</title>
+	<title>Writer Center - Register/Login</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -23,16 +23,16 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-7 text">
-						<h1><strong>新闻</strong> 媒体号-作家中心</h1>
+						<h1><strong>News</strong> Writer Center</h1>
 						<div class="description">
-							<p>用户可以在此注册或登录，待完善信息后即可成为作家发文噢~</p>
+							<p>User can register or login here, and can publish article after fill personal information~</p>
 						</div>
 					</div>
 					<div class="col-sm-5 form-box">
 						<div class="form-top">
 							<div class="form-top-left">
-								<h3>注册/登录</h3>
-								<p>已有账号则直接登录，否则需要注册:</p>
+								<h3>Register/Login</h3>
+								<p>Login directly if you have account, or you need register:</p>
 							</div>
 							<div class="form-top-right">
 								<img src="./assets/img/writer.png" style="width: 60px; height: 60px;" />
@@ -41,13 +41,13 @@
 						<div id="passport" class="form-bottom">
 							<!-- <form role="form" action="" method="post" class="registration-form"> -->
 							<div class="form-group">
-								<label class="sr-only" for="mobile">手机号</label>
-								<input type="text" name="mobile" v-model="mobile" placeholder="手机号..."
+								<label class="sr-only" for="mobile">Mobile Number</label>
+								<input type="text" name="mobile" v-model="mobile" placeholder="Mobile Number..."
 									class="form-first-name form-control" id="mobile">
 							</div>
 							<div class="form-group">
-								<label class="sr-only" for="smsCode">验证码</label>
-								<input type="text" name="smsCode" v-model="smsCode" placeholder="验证码..."
+								<label class="sr-only" for="smsCode">smsCode</label>
+								<input type="text" name="smsCode" v-model="smsCode" placeholder="smsCode..."
 									class="form-last-name " id="smsCode" style="width: 70%;">
 								<button id="sendCode" type="submit" class="btn" @click="sendCode" style="height: 40px; 
 											line-height: 40px; 
@@ -55,7 +55,7 @@
 											padding: 0 10px; 
 											background-color: #4bb550;">{{sendCodeValue}}</button>
 							</div>
-							<button type="button" class="btn" style="width: 100%;" @click="display">一键注册/登录</button>
+							<button type="button" class="btn" style="width: 100%;" @click="display">Register/Login</button>
 							<!-- </form> -->
 						</div>
 					</div>
@@ -81,7 +81,7 @@
 			data: {
 				mobile: "",
 				smsCode: "",
-				sendCodeValue: "发送验证码",
+				sendCodeValue: "Send smsCode",
 
 			},
 			mounted() {
@@ -105,14 +105,14 @@
 					var mobile = me.mobile;
 					var mobileIsNotEmpty = app.isNotEmpty(mobile);
 					if (!mobileIsNotEmpty) {
-						alert("手机号不能为空！");
+						alert("Phone number Can't be Empty!");
 						return;
 					}
 
 					var smsCode = me.smsCode;
 					var smsCodeIsNotEmpty = app.isNotEmpty(smsCode);
 					if (!smsCodeIsNotEmpty) {
-						alert("短信验证码不能为空！");
+						alert("smsCode Can't be Empty!");
 						return;
 					}
 
@@ -134,7 +134,7 @@
 								var userStatus = res.data.data;
 								if (userStatus == 0) {
 									// 未激活，用户状态未完善资料，则需要跳转到作家中心去完善用户的资料
-									alert("您的信息未完善，待完善后方可进行发文、评论等操作！");
+									alert("Your information is not complete, fill the information to unlock other operation!");
 									window.location = app.writerInfoUrl;
 								} else if (userStatus == 1) {
 									// 已激活，用户状态已经完善资料，则跳转首页
@@ -153,7 +153,7 @@
 					var mobile = me.mobile;
 					var mobileIsNotEmpty = app.isNotEmpty(mobile);
 					if (!mobileIsNotEmpty) {
-						alert("手机号不能为空！");
+						alert("Phone Number Can't be Empty!");
 						return;
 					}
 
@@ -167,7 +167,7 @@
 							console.log(res.data);
 
 							if (res.data.status == 200) {
-								alert("短信已发送至您手机，请查看哟~~");
+								alert("smsCode Sent to your phone~~");
 							} else {
 								alert(res.data.msg);
 							}
@@ -176,7 +176,7 @@
 							$("#sendCode").attr("disabled", true);
 							// 时间倒计时
 							var times = 60;
-							me.sendCodeValue = "发送验证码(" + times + ")";
+							me.sendCodeValue = "Send smsCode(" + times + ")";
 							// 倒计时
 							me.doTimer(times);
 						});
@@ -192,10 +192,10 @@
 
 						if (left <= 0) {
 							$("#sendCode").attr("disabled", false);
-							me.sendCodeValue = "发送验证码";
+							me.sendCodeValue = "Send smsCode";
 							clearInterval(smsTimer);
 						} else {
-							me.sendCodeValue = "发送验证码(" + left + ")";
+							me.sendCodeValue = "Send smsCode(" + left + ")";
 						}
 					};
 					var smsTimer = setInterval(sendCodeBtnFunction, 1000);
