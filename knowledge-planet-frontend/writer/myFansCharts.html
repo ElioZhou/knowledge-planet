@@ -14,7 +14,7 @@
 
 	<link rel="shortcut icon" href="img/mu-toutiao.ico" />
 
-	<title>媒体号作家中心 | 粉丝画像</title>
+	<title>Writer Center | Fans Portrait</title>
 </head>
 
 <body>
@@ -39,27 +39,27 @@
 					<li class="">
 						<div class="menu-title-wrapper">
 							<img src="img/media-ico.png" class="word-ico" />
-							<div class="menu-title">媒体中心</div>
+							<div class="menu-title">Account Center</div>
 						</div>
 						<ul>
 							<li class="menu-item">
 								<a href="contentMng.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">内容管理</a>
+									v-if="userInfo.activeStatus == 1">Content Management</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">内容管理</a>
+									v-if="userInfo.activeStatus == 0">Content Management</a>
 							</li>
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-select">主页</a></li> -->
 							<li class="menu-item">
 								<a href="createArticle.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">发头条</a>
+									v-if="userInfo.activeStatus == 1">Headline</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">发头条</a>
+									v-if="userInfo.activeStatus == 0">Headline</a>
 							</li>
 							<li class="menu-item">
 								<a href="commentMng.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">评论管理</a>
+									v-if="userInfo.activeStatus == 1">Comment Management</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">评论管理</a>
+									v-if="userInfo.activeStatus == 0">Comment Management</a>
 							</li>
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-default">打赏记录</a></li> -->
 						</ul>
@@ -70,26 +70,26 @@
 					<li class="">
 						<div class="menu-title-wrapper">
 							<img src="img/user-ico.png" class="word-ico" />
-							<div class="menu-title">个人账号</div>
+							<div class="menu-title">Personal Account</div>
 						</div>
 						<ul>
 							<li class="menu-item">
 								<a href="accountInfo.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">账号设置</a>
+									v-if="userInfo.activeStatus == 1">Account Setting</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">账号设置</a>
+									v-if="userInfo.activeStatus == 0">Account Setting</a>
 							</li>
 							<li class="menu-item">
 								<a href="myFans.html" class="menu-item-default"
-									v-if="userInfo.activeStatus == 1">我的粉丝</a>
+									v-if="userInfo.activeStatus == 1">My fans</a>
 								<a href="javascript:void(0);" class="menu-item-default"
-									v-if="userInfo.activeStatus == 0">我的粉丝</a>
+									v-if="userInfo.activeStatus == 0">My fans</a>
 							</li>
 							<li class="menu-item">
 								<a href="myFansCharts.html" class="menu-item-select"
-									v-if="userInfo.activeStatus == 1">粉丝画像</a>
+									v-if="userInfo.activeStatus == 1">Fans Portrait</a>
 								<a href="javascript:void(0);" class="menu-item-select"
-									v-if="userInfo.activeStatus == 0">粉丝画像</a>
+									v-if="userInfo.activeStatus == 0">Fans Portrait</a>
 							</li>
 
 							<!-- <li class="menu-item"><a href="javascript:void(0);" class="menu-item-default">收益提现</a></li> -->
@@ -101,13 +101,13 @@
 			<div class="main-page">
 				<div class="title-box">
 					<div class="title-wrapper">
-						<span class="title-word">粉丝画像</span>
+						<span class="title-word">Fans Portrait</span>
 					</div>
 				</div>
 
 				<div class="all-charts-wrapper">
 
-					<div class="sex-lable">男女比例</div>
+					<div class="sex-lable">Gender ratio</div>
 					<!-- 男女比例 -->
 					<div class="sex-wrapper">
 
@@ -117,13 +117,13 @@
 						</div>
 
 						<div class="sex-block-wrapper">
-							<div class="sex-all-counts">总粉丝数：{{manCounts + womanCounts}}人</div>
+							<div class="sex-all-counts">Total fans：{{manCounts + womanCounts}}</div>
 							<div class="sex-man-counts">
-								<div class="sex-man-block"></div>男性：{{manCounts}}人，占比 {{getPercent(manCounts/(manCounts
+								<div class="sex-man-block"></div>Male：{{manCounts}}，ratio {{getPercent(manCounts/(manCounts
 								+ womanCounts))}}%
 							</div>
 							<div class="sex-woman-counts">
-								<div class="sex-woman-block"></div>女性：{{womanCounts}}人，占比
+								<div class="sex-woman-block"></div>Female：{{womanCounts}}，ratio
 								{{getPercent(womanCounts/(manCounts + womanCounts))}}%
 							</div>
 						</div>
@@ -136,7 +136,7 @@
 						<div id="sexPie" style="width: 800px;height:400px;padding: 15px;"></div>
 					</div>
 
-					<div class="city-lable">地域分布</div>
+					<div class="city-lable">Geometric distribution</div>
 					<div class="map-wrapper">
 						<div id="mapChart" style="width: 800px;height:500px;"></div>
 					</div>
@@ -281,11 +281,11 @@
 						}
 					},
 					legend: {
-						data: ['粉丝数量']
+						data: ['Fans quantity']
 					},
 					// color: ['#3fa4e6'],
 					xAxis: {
-						data: ["男性", "女性", "全部粉丝"]
+						data: ["Male", "Female", "Total Fans"]
 					},
 					yAxis: {},
 					series: [{
@@ -313,7 +313,7 @@
 					legend: {
 						orient: 'vertical',
 						left: 'left',
-						data: ['男性比例', '女性比例']
+						data: ['Male ratio', 'Female ratio']
 					},
 					series: [
 						{
@@ -321,8 +321,8 @@
 							radius: '55%',
 							center: ['50%', '60%'],
 							data: [
-								{ value: manCounts, name: '男性比例' },
-								{ value: womanCounts, name: '女性比例' }
+								{ value: manCounts, name: 'Male ratio' },
+								{ value: womanCounts, name: 'Female ratio' }
 							],
 							emphasis: {
 								itemStyle: {
@@ -343,27 +343,27 @@
 				// 省份参考：https://baike.baidu.com/item/%E7%9C%81%E4%BB%BD/1635191?fr=aladdin
 				// 需要注意：文字要匹配地图，否则会失败，比如地图中为[江苏], 但是你传入的是[江苏省], 那么地图上是不会显示具体的数值的
 				var mydata = [
-					{ name: '北京', value: 1000 }, { name: '天津', value: 596 },
-					{ name: '上海', value: 102 }, { name: '重庆', value: 6320 },  // 4个直辖市
+					{ name: 'Beijing', value: 1000 }, { name: 'Tianjin', value: 596 },
+					{ name: 'Shanghai', value: 102 }, { name: 'Chongqing', value: 6320 },  // 4个直辖市
 
-					{ name: '河北', value: 2000 }, { name: '山西', value: 300 },
-					{ name: '辽宁', value: 1111 }, { name: '吉林', value: 600 },
-					{ name: '黑龙江', value: 15687 }, { name: '江苏', value: 1111 },
-					{ name: '浙江', value: 5987 }, { name: '安徽', value: 9631 },
-					{ name: '福建', value: 607895 }, { name: '江西', value: 4214 },
-					{ name: '山东', value: 12143 }, { name: '河南', value: 11057 },
-					{ name: '湖北', value: 2222 }, { name: '湖南', value: 8693 },
-					{ name: '广东', value: 63214 }, { name: '海南', value: 15978 },
-					{ name: '四川', value: 1010102 }, { name: '贵州', value: 708 },
-					{ name: '云南', value: 23987 }, { name: '陕西', value: 489 },
-					{ name: '甘肃', value: 1047 }, { name: '青海', value: 96874 },
-					{ name: '台湾', value: 1111 },	// 23个省
+					{ name: 'Hebei', value: 2000 }, { name: 'Shanxi', value: 300 },
+					{ name: 'Liaoning', value: 1111 }, { name: 'Jilin', value: 600 },
+					{ name: 'Heilongjiang', value: 15687 }, { name: 'Jiangsu', value: 1111 },
+					{ name: 'Zhejiang', value: 5987 }, { name: 'Anhui', value: 9631 },
+					{ name: 'Fujian', value: 607895 }, { name: 'Jiangxi', value: 4214 },
+					{ name: 'Shandong', value: 12143 }, { name: 'Henan', value: 11057 },
+					{ name: 'Hubei', value: 2222 }, { name: 'Hunan', value: 8693 },
+					{ name: 'Guangdong', value: 63214 }, { name: 'Hainan', value: 15978 },
+					{ name: 'Sichuan', value: 1010102 }, { name: 'Guizhou', value: 708 },
+					{ name: 'Yunnan', value: 23987 }, { name: 'Shaanxi', value: 489 },
+					{ name: 'Gansu', value: 1047 }, { name: 'Qinghai', value: 96874 },
+					{ name: 'Taiwan', value: 1111 },	// 23个省
 
-					{ name: '内蒙古', value: 1111 }, { name: '广西', value: 3621 },
-					{ name: '西藏', value: 120147 }, { name: '宁夏', value: 32104 },
-					{ name: '新疆', value: 6354 }, 	// 5个自治区
+					{ name: 'Neimenggu', value: 1111 }, { name: 'Guangxi', value: 3621 },
+					{ name: 'Xizang', value: 120147 }, { name: 'Ningxia', value: 32104 },
+					{ name: 'Xinjiang', value: 6354 }, 	// 5个自治区
 
-					{ name: '香港', value: 26874 }, { name: '澳门', value: 879631 }	// 2个特别行政区
+					{ name: 'Hongkong', value: 26874 }, { name: 'Macao', value: 879631 }	// 2个特别行政区
 				];
 
 				var optionMap = {
@@ -406,7 +406,7 @@
 
 					//配置属性
 					series: [{
-						name: '数据',
+						name: 'Data',
 						type: 'map',
 						mapType: 'china',
 						roam: true,
